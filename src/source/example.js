@@ -53,6 +53,7 @@ function compute(val = null) {
 
 const result = compute(obj?.method?.() ?? 1);
 
+// TODO: Do not parse regex literals, it must be a string for now
 const regex = "/hello|world/gi";
 const bitwiseResult = (x & y) | (x ^ z);
 
