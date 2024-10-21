@@ -1,0 +1,3 @@
+- [x] Add lexer
+- [x] Add parser
+- [ ] Add Parser functions
