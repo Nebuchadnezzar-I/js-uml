@@ -1,132 +1,131 @@
+
 %{
-#include <stdio.h>
+    #include <stdio.h>
+    #include <string.h>
+    #include "par.tab.h"
 %}
 
 %%
 
-"await"             { printf("Await\n"); }
-"break"             { printf("Break\n"); }
-"case"              { printf("Case\n"); }
-"catch"             { printf("Catch\n"); }
-"class"             { printf("Class\n"); }
-"const"             { printf("Const\n"); }
-"continue"          { printf("Continue\n"); }
-"debugger"          { printf("Debugger\n"); }
-"default"           { printf("Default\n"); }
-"delete"            { printf("Delete\n"); }
-"do"                { printf("Do\n"); }
-"else"              { printf("Else\n"); }
-"enum"              { printf("Enum\n"); }
-"export"            { printf("Export\n"); }
-"extends"           { printf("Extends\n"); }
-"true"              { printf("True\n"); }
-"false"             { printf("False\n"); }
-"finally"           { printf("Finally\n"); }
-"for"               { printf("For\n"); }
-"function"          { printf("Function\n"); }
-"if"                { printf("If\n"); }
-"import"            { printf("Import\n"); }
-"in"                { printf("In\n"); }
-"instanceof"        { printf("Instanceof\n"); }
-"let"               { printf("Let\n"); }
-"new"               { printf("New\n"); }
-"null"              { printf("Null\n"); }
-"return"            { printf("Return\n"); }
-"super"             { printf("Super\n"); }
-"switch"            { printf("Switch\n"); }
-"this"              { printf("This\n"); }
-"throw"             { printf("Throw\n"); }
-"try"               { printf("Try\n"); }
-"typeof"            { printf("Typeof\n"); }
-"var"               { printf("Var\n"); }
-"void"              { printf("Void\n"); }
-"while"             { printf("While\n"); }
-"with"              { printf("With\n"); }
-"yield"             { printf("Yield\n"); }
-"get"               { printf("Get\n"); }
-"set"               { printf("Set\n"); }
-"static"            { printf("Static\n"); }
-"accessor"          { printf("Accessor\n"); }
-"from"              { printf("From\n"); }
-"of"                { printf("Of\n"); }
-"as"                { printf("As\n"); }
-"console"           { printf("Console\n"); }
-"promise"           { printf("Promise\n"); }
-"Promise"           { printf("Promise\n"); }
+"await"             { return AWAIT; }
+"break"             { return BREAK; }
+"case"              { return CASE; }
+"catch"             { return CATCH; }
+"class"             { return CLASS; }
+"const"             { return CONST; }
+"continue"          { return CONTINUE; }
+"debugger"          { return DEBUGGER; }
+"default"           { return DEFAULT; }
+"delete"            { return DELETE; }
+"do"                { return DO; }
+"else"              { return ELSE; }
+"enum"              { return ENUM; }
+"export"            { return EXPORT; }
+"extends"           { return EXTENDS; }
+"true"              { return TRUE; }
+"false"             { return FALSE; }
+"finally"           { return FINALLY; }
+"for"               { return FOR; }
+"function"          { return FUNCTION; }
+"if"                { return IF; }
+"import"            { return IMPORT; }
+"in"                { return IN; }
+"instanceof"        { return INSTANCEOF; }
+"let"               { return LET; }
+"new"               { return NEW; }
+"null"              { return NULL_TOK; }
+"return"            { return RETURN; }
+"super"             { return SUPER; }
+"switch"            { return SWITCH; }
+"this"              { return THIS; }
+"throw"             { return THROW; }
+"try"               { return TRY; }
+"typeof"            { return TYPEOF; }
+"var"               { return VAR; }
+"void"              { return VOID; }
+"while"             { return WHILE; }
+"with"              { return WITH; }
+"yield"             { return YIELD; }
+"get"               { return GET; }
+"set"               { return SET; }
+"static"            { return STATIC; }
+"accessor"          { return ACCESSOR; }
+"from"              { return FROM; }
+"of"                { return OF; }
+"as"                { return AS; }
+"console"           { return CONSOLE; }
+"promise"           { return PROMISE; }
+"Promise"           { return PROMISE; }
 
-"??"                { printf("Nullish\n"); }
-"||"                { printf("Or\n"); }
-"&&"                { printf("And\n"); }
-"!"                 { printf("Not\n"); }
-"?"                 { printf("Conditional\n"); }
-":"                 { printf("Colon\n"); }
-"+"                 { printf("Add\n"); }
-"-"                 { printf("Sub\n"); }
-"*"                 { printf("Mul\n"); }
-"/"                 { printf("Div\n"); }
-"%"                 { printf("Mod\n"); }
-"**"                { printf("Exp\n"); }
-"++"                { printf("Inc\n"); }
-"--"                { printf("Dec\n"); }
-"|"                 { printf("BitOr\n"); }
-"^"                 { printf("BitXor\n"); }
-"&"                 { printf("BitAnd\n"); }
-"~"                 { printf("BitNot\n"); }
-"<<"                { printf("Shl\n"); }
-">>"                { printf("Shr\n"); }
-">>>"               { printf("Sar\n"); }
-"="                 { printf("Assign\n"); }
-"+="                { printf("AddAssign\n"); }
-"-="                { printf("SubAssign\n"); }
-"*="                { printf("MulAssign\n"); }
-"/="                { printf("DivAssign\n"); }
-"%="                { printf("ModAssign\n"); }
-"**="               { printf("ExpAssign\n"); }
-"<<="               { printf("ShlAssign\n"); }
-">>="               { printf("SarAssign\n"); }
-">>>="              { printf("ShrAssign\n"); }
-"&="                { printf("BitAndAssign\n"); }
-"^="                { printf("BitXorAssign\n"); }
-"|="                { printf("BitOrAssign\n"); }
-"&&="               { printf("LogicalAndAssign\n"); }
-"||="               { printf("LogicalOrAssign\n"); }
-"??="               { printf("NullishAssign\n"); }
-"=="                { printf("Eq\n"); }
-"==="               { printf("EqStrict\n"); }
-"!="                { printf("NotEq\n"); }
-"!=="               { printf("NotEqStrict\n"); }
-"<"                 { printf("LessThan\n"); }
-">"                 { printf("GreaterThan\n"); }
-"<="                { printf("LessThanEq\n"); }
-">="                { printf("GreaterThanEq\n"); }
-"."                 { printf("Period\n"); }
-"..."               { printf("Ellipsis\n"); }
-","                 { printf("Comma\n"); }
-";"                 { printf("Semicolon\n"); }
-"=>"                { printf("Arrow\n"); }
-"("                 { printf("LeftParen\n"); }
-")"                 { printf("RightParen\n"); }
-"{"                 { printf("LeftBracket\n"); }
-"}"                 { printf("RightBracket\n"); }
-"["                 { printf("LeftBrace\n"); }
-"]"                 { printf("RightBrace\n"); }
-"?."                { printf("QuestionPeriod\n"); }
-"$"                 { printf("Dollar\n"); }
-"`"                 { printf("TemplateLiteral\n"); }
+"??"                { return NULLISH; }
+"||"                { return OR; }
+"&&"                { return AND; }
+"!"                 { return NOT; }
+"?"                 { return CONDITIONAL; }
+":"                 { return COLON; }
+"+"                 { return ADD; }
+"-"                 { return SUB; }
+"*"                 { return MUL; }
+"/"                 { return DIV; }
+"%"                 { return MOD; }
+"**"                { return EXP; }
+"++"                { return INC; }
+"--"                { return DEC; }
+"|"                 { return BITOR; }
+"^"                 { return BITXOR; }
+"&"                 { return BITAND; }
+"~"                 { return BITNOT; }
+"<<"                { return SHL; }
+">>"                { return SHR; }
+">>>"               { return SAR; }
+"="                 { return ASSIGN; }
+"+="                { return ADDASSIGN; }
+"-="                { return SUBASSIGN; }
+"*="                { return MULASSIGN; }
+"/="                { return DIVASSIGN; }
+"%="                { return MODASSIGN; }
+"**="               { return EXPASSIGN; }
+"<<="               { return SHLASSIGN; }
+">>="               { return SARASSIGN; }
+">>>="              { return SHRASSIGN; }
+"&="                { return BITANDASSIGN; }
+"^="                { return BITXORASSIGN; }
+"|="                { return BITORASSIGN; }
+"&&="               { return LOGICALANDASSIGN; }
+"||="               { return LOGICALORASSIGN; }
+"??="               { return NULLISHASSIGN; }
+"=="                { return EQ; }
+"==="               { return EQSTRICT; }
+"!="                { return NOTEQ; }
+"!=="               { return NOTEQSTRICT; }
+"<"                 { return LESSTHAN; }
+">"                 { return GREATERTHAN; }
+"<="                { return LESSTHANEQ; }
+">="                { return GREATERTHANEQ; }
+"."                 { return PERIOD; }
+"..."               { return ELLIPSIS; }
+","                 { return COMMA; }
+";"                 { return SEMICOLON; }
+"=>"                { return ARROW; }
+"("                 { return LEFTPAREN; }
+")"                 { return RIGHTPAREN; }
+"{"                 { return LEFTBRACKET; }
+"}"                 { return RIGHTBRACKET; }
+"["                 { return LEFTBRACE; }
+"]"                 { return RIGHTBRACE; }
+"?."                { return QUESTIONPERIOD; }
+"$"                 { return DOLLAR; }
+"`"                 { return TEMPLATE_LITERAL; }
 
-\"(\\.|[^\"])*\"    { printf("DoubleQuotedString: %s\n", yytext); }
-\'(\\.|[^\'])*\'    { printf("SingleQuotedString: %s\n", yytext); }
+\"(\\.|[^\"])*\"    { yylval.strval = strdup(yytext); return DOUBLEQUOTEDSTRING; }
+\'(\\.|[^\'])*\'    { yylval.strval = strdup(yytext); return SINGLEQUOTEDSTRING; }
 
-[ \t\n]+            { /* WHITESPACE */ }
-[a-zA-Z]+           { printf("Identifier: %s\n", yytext); }
-[0-9]+              { printf("NumberLiteral\n"); }
+[ \t\n]+            { /* Ignore whitespace */ }
 
-.                   { printf("ILLEGAL\n"); }
+[a-zA-Z]+           { yylval.strval = strdup(yytext); return IDENTIFIER; }
+[0-9]+              { yylval.intval = atoi(yytext); return NUMBERLITERAL; }
+
+.                   { printf("ILLEGAL: %s\n", yytext); }
 
 %%
-
-int main(int argc, char **argv) {
-    yylex();
-    return 0;
-}
 
